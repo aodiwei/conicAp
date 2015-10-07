@@ -1,0 +1,14 @@
+<ion-view view-title="设置">
+  <ion-content>
+    <ion-list ng-controller="SetPush">
+    <ion-toggle ng-model="pushNotificationCam.checked"  ng-change="pushCamera()">
+        打开相机
+    </ion-toggle>
+
+    <ion-toggle ng-model="pushNotificationBro.checked"  ng-change="pushBrower()">
+        打开浏览器
+    </ion-toggle>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

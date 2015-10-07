@@ -1,0 +1,61 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+
+
+<ion-side-menus>
+    <!-- 中间内容 -->
+    <ion-side-menu-content >
+
+        <!--标题-->
+        <ion-nav-bar class="bar-positive">
+            <ion-nav-buttons side="left">
+                <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+
+        <ion-tabs class="tabs-icon-top tabs-color-active-positive tabs-stable">
+            <!-- Dashboard Tab -->
+            <ion-tab title="首页" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/home">
+                <ion-nav-view name="tab-home"></ion-nav-view>
+            </ion-tab>
+
+            <!-- Chats Tab -->
+            <ion-tab title="我" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/me">
+                <ion-nav-view name="tab-me"></ion-nav-view>
+            </ion-tab>
+
+            <!-- Account Tab -->
+            <ion-tab title="设置" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/setting">
+                <ion-nav-view name="tab-setting"></ion-nav-view>
+            </ion-tab>
+        </ion-tabs>
+    </ion-side-menu-content>
+
+    <!-- 左侧菜单 -->
+    <ion-side-menu side="left" width="150" edge-drag-threshold="100">
+        <header class="bar bar-header bar-balanced">
+            <h1 class="title">菜单</h1>
+        </header>
+        <ion-content class="has-header" ng-controller="SideMenuCtrl">
+            <ion-list >
+                <ion-item nav-clear menu-close  ng-click="modal.show()">
+                    <span ng-click="showDeviceInfo()">设备信息</span>
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/tab/me">
+                    我的资料
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/tab/setting">
+                    设置
+                </ion-item>
+
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+
+    <!-- 右侧菜单 -->
+    <!--<ion-side-menu side="right">-->
+    <!--</ion-side-menu>-->
+</ion-side-menus>
