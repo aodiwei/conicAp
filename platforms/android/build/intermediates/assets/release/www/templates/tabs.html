@@ -1,0 +1,61 @@
+
+<ion-side-menus>
+    <!-- 中间内容 -->
+    <ion-side-menu-content >
+
+        <!--标题-->
+        <ion-nav-bar class="bar-positive">
+            <ion-nav-buttons side="left">
+                <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+
+        <ion-tabs class="tabs-icon-top tabs-color-active-positive tabs-stable">
+            <!-- 首页 Tab -->
+            <ion-tab title="首页" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/tab/home">
+                <ion-nav-view name="tab-home"></ion-nav-view>
+            </ion-tab>
+
+            <!-- 我 Tab -->
+            <ion-tab title="我" icon-off="ion-ios-body-outline" icon-on="ion-ios-body" href="#/tab/me">
+                <ion-nav-view name="tab-me"></ion-nav-view>
+            </ion-tab>
+
+            <!-- 设置 Tab -->
+            <ion-tab title="设置" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/setting">
+                <ion-nav-view name="tab-setting"></ion-nav-view>
+            </ion-tab>
+        </ion-tabs>
+    </ion-side-menu-content>
+
+    <!-- 左侧菜单 -->
+    <ion-side-menu side="left" width="150" edge-drag-threshold="100">
+        <header class="bar bar-header bar-balanced">
+            <h1 class="title">菜单</h1>
+        </header>
+        <ion-content class="has-header" >
+            <ion-list >
+                <ion-item nav-clear menu-close ng-controller="SideMenuDeviceCtrl"   ng-click="showDeviceInfo()">
+                    <span >设备信息</span>
+                </ion-item>
+
+                <!--android平台定位插件有问题，试了很多方式还未解决，暂时不用，后续研究解决方案-->
+                <ion-item nav-clear menu-close  ng-controller="SideMenuNGGeoCtrl" ng-hide="true"   ng-click="showGeoInfo()">
+                    <span >位置信息</span>
+                </ion-item>
+
+                <ion-item nav-clear menu-close href="#/tab/me">
+                    我的资料
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/tab/setting">
+                    设置
+                </ion-item>
+
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+
+    <!-- 右侧菜单 -->
+    <!--<ion-side-menu side="right">-->
+    <!--</ion-side-menu>-->
+</ion-side-menus>

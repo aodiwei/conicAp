@@ -1,0 +1,55 @@
+
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">位置信息</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">返回</button>
+    </ion-header-bar>
+      <ion-content class="padding">
+        <div class="content  ionic-pseudo" >
+
+            <div class="list card">
+
+                <a href="#" class="item item-icon-left">
+                   <i class="icon ion-home"></i>
+                    纬度：{{Latitude}}
+                </a>
+
+                <a href="#" class="item item-icon-left">
+                    <i class="icon ion-ios-telephone"></i>
+                    经度：{{Longitude}}
+                </a>
+
+                <!--<a href="#" class="item item-icon-left">-->
+                    <!--<i class="icon ion-wifi"></i>-->
+                    <!--海拔：{{Altitude}}-->
+                <!--</a>-->
+
+                <!--<a href="#" class="item item-icon-left">-->
+                    <!--<i class="icon ion-card"></i>-->
+                    <!--精度：{{Accuracy}}-->
+                <!--</a>-->
+
+                   <!--<a href="#" class="item item-icon-left">-->
+                   <!--<i class="icon ion-home"></i>-->
+                    <!--高度准确度：{{Altitude}}-->
+                <!--</a>-->
+
+                <!--<a href="#" class="item item-icon-left">-->
+                    <!--<i class="icon ion-ios-telephone"></i>-->
+                    <!--航向：{{Heading}}-->
+                <!--</a>-->
+
+                <!--<a href="#" class="item item-icon-left">-->
+                    <!--<i class="icon ion-wifi"></i>-->
+                    <!--速率：{{Speed}}-->
+                <!--</a>-->
+
+                <a href="#" class="item item-icon-left">
+                    <i class="icon ion-card"></i>
+                    时间戳：{{Timestamp}}
+                </a>
+
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

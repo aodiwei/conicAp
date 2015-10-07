@@ -1,0 +1,37 @@
+
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">设备信息</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">返回</button>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <div class="content  ionic-pseudo" >
+
+            <div class="list card">
+
+                <a href="#" class="item item-icon-left">
+                   <i class="icon ion-iphone"></i>
+                    设备名称：{{deviceName}}
+                </a>
+
+                <a href="#" class="item item-icon-left">
+                    <i class="icon ion-social-android"></i>
+                    设备系统：{{platform}}
+                </a>
+
+                <a href="#" class="item item-icon-left">
+                    <i class="icon ion-ios-pricetags"></i>
+                    UUID：{{uuid}}
+                </a>
+
+                <a href="#" class="item item-icon-left">
+                    <i class="icon ion-card"></i>
+                    系统版本：{{version}}
+                </a>
+
+
+
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>
