@@ -11,10 +11,13 @@
         </a>
 
 
-        <a class="item item-icon-left item-icon-right" href="#" ng-controller="GetContactCtrl" ng-click="getContacts()">
+        <a class="item item-icon-left " href="#" ng-controller="GetContactCtrl" ng-click="getContacts()">
           <i class="icon ion-chatbubble-working"></i>
-          <p ng-bind="phoneNumber" ></p>
-          <i class="icon ion-ios-telephone-outline"></i>
+          <p style="float: left;" ng-bind="phoneNumber" ></p>
+          <!--<i class="icon ion-ios-telephone-outline" ></i>-->
+          <span class="item-note " style="float: right;">
+           修改电话
+          </span>
         </a>
 
         <a class="item item-icon-left" href="#">
