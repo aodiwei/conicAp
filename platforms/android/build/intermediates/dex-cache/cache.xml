@@ -8,5 +8,12 @@
         sha1="c883da0d81a418deb3d0c334d177f0be76ce68f2">
         <dex dex="F:\12ANDR\CorIonicApp\platforms\android\build\intermediates\pre-dexed\debug\classes-e6f067fd822839eccb2d8cff65cbdf118da9889d.jar" />
     </item>
+    <item
+        jar="F:\12ANDR\CorIonicApp\platforms\android\libs\locSDK_4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8b405c3054e12d913fa5aafb160c294e642dc673">
+        <dex dex="F:\12ANDR\CorIonicApp\platforms\android\build\intermediates\pre-dexed\debug\locSDK_4.0-ede9fee4bca9af2870abcc9dfdf65563140dc493.jar" />
+    </item>
 
 </items>

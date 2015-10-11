@@ -1,2 +1,3 @@
 F:\12ANDR\CorIonicApp\platforms\android\build\intermediates\classes\debug
 F:\12ANDR\CorIonicApp\platforms\android\build\intermediates\pre-dexed\debug\classes-e6f067fd822839eccb2d8cff65cbdf118da9889d.jar
+F:\12ANDR\CorIonicApp\platforms\android\build\intermediates\pre-dexed\debug\locSDK_4.0-ede9fee4bca9af2870abcc9dfdf65563140dc493.jar

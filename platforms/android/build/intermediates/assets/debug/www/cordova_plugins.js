@@ -145,6 +145,28 @@ module.exports = [
             "cordova.InAppBrowser.open",
             "window.open"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-network-information/www/network.js",
+        "id": "cordova-plugin-network-information.network",
+        "clobbers": [
+            "navigator.connection",
+            "navigator.network.connection"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+        "id": "cordova-plugin-network-information.Connection",
+        "clobbers": [
+            "Connection"
+        ]
+    },
+    {
+        "file": "plugins/com.spout.phonegap.plugins.baidulocation/www/baidulocation.js",
+        "id": "com.spout.phonegap.plugins.baidulocation.BiaduLocation",
+        "clobbers": [
+            "window.baiduLocation"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -158,7 +180,9 @@ module.exports.metadata =
     "com.synconset.imagepicker": "1.0.6",
     "cordova-plugin-camera": "1.2.0",
     "cordova-plugin-contacts": "1.1.0",
-    "cordova-plugin-inappbrowser": "1.0.1"
+    "cordova-plugin-inappbrowser": "1.0.1",
+    "cordova-plugin-network-information": "1.0.1",
+    "com.spout.phonegap.plugins.baidulocation": "0.1.0"
 }
 // BOTTOM OF METADATA
 });

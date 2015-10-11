@@ -133,28 +133,24 @@ app.controller('SideMenuGeoCtrl', function($scope, $ionicModal){
 
 
     $scope.showGeoInfo = function() {
-
         $scope.modal.show();
+
         var option = {
             maximumAge: 0,
             timeout: 15000,
             enableHighAccuracy: false
         };
-        navigator.geolocation.getCurrentPosition($scope.onSuccess, $scope.onError, option);
+        //navigator.geolocation.getCurrentPosition($scope.onSuccess, $scope.onError, option);
+        $scope.watchId = navigator.geolocation.watchPosition($scope.onSuccess, $scope.onError, option);
 
     };
 
     $scope.onSuccess = function(position) {
+        navigator.geolocation.clearWatch($scope.watchId);
         $scope.Latitude  = position.coords.latitude ;
         $scope.Longitude = position.coords.longitude;
-//        $scope.Altitude  = position.coords.altitude;
-//        $scope.Accuracy  = position.coords.accuracy;
-//        $scope.Altitude = position.coords.altitudeAccuracy;
-//        $scope.Heading  = position.coords.heading;
-//        $scope.Speed = position.coords.speed;
         $scope.Timestamp = position.timestamp;
         $scope.$apply();
-//        alert( $scope.Latitude + $scope.Longitude);
 
     };
 
@@ -162,7 +158,8 @@ app.controller('SideMenuGeoCtrl', function($scope, $ionicModal){
 //        alert('code: '    + error.code    + '\n' +
 //            'message: ' + error.message + '\n');
         alert("定位失败，请检查是否打开GPS");
-    }
+        $scope.baiAPILocation();
+    };
 
 });
 
@@ -204,4 +201,79 @@ app.controller('SideMenuNGGeoCtrl', function($scope, $ionicModal, $cordovaGeoloc
 
     });
 
+ //使用百度定位功能
+app.controller('SideMenuBDGeoCtrl', function($scope, $ionicModal, $cordovaGeolocation) {
 
+    $ionicModal.fromTemplateUrl('templates/geo-info.html', {
+        scope: $scope
+    }).then(function (modal) {
+        $scope.modal = modal;
+    });
+
+    $scope.showGeoInfo = function(){
+        if(!$scope.checkConnection()){
+            return false;
+        }
+        $scope.modal.show();
+        try{
+
+            //基于百度API的插件
+                window.locationService.getCurrentPosition(function(pos) {
+//                    alert(JSON.stringify(pos));
+                    $scope.setGeo(pos);
+//                    window.locationService.stop({}, {})
+                });
+                return;
+
+            //直接用百度API,但是它需要在线加载Key，如果没有打开网络会导致APP起不来
+                var geolocation = new BMap.Geolocation();
+                geolocation.getCurrentPosition(function(r){
+                    if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                        console.log('您的位置：'+r.point.lng+','+r.point.lat + "," + r.address.province + "," + r.address.city);
+                        $scope.onSuccess(r);
+                    }
+                    else {
+                        console.log('failed'+this.getStatus());
+                    }
+                },{
+                    enableHighAccuracy: true,
+                    timeout: 10 * 1000,
+                    maximumAge: 1000 * 30
+                });
+        }catch(e)
+        {
+            console.log("write fail");
+        }
+
+    };
+
+    $scope.checkConnection = function () {
+        var networkState = navigator.connection.type;
+        if(networkState == Connection.NONE){
+            alert("请打开网络");
+            return false;
+        }
+        else{
+            return true;
+        }
+    };
+
+    $scope.setGeo = function(pos){
+        $scope.Latitude  = pos.coords.latitude;
+        $scope.Longitude = pos.coords.longitude;
+        $scope.$apply();
+    };
+
+    $scope.onSuccess = function(r) {
+        navigator.geolocation.clearWatch($scope.watchId);
+        $scope.Latitude  = r.point.lat  ;
+        $scope.Longitude = r.point.lng;
+        $scope.province =  r.address.province ;
+        $scope.city = r.address.city;
+
+        $scope.$apply();
+//        alert( $scope.Latitude + $scope.Longitude);
+
+    };
+
+});
