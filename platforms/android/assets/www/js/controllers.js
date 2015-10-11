@@ -122,7 +122,7 @@ app.controller('SideMenuDeviceCtrl', function($scope, $ionicModal){
 
 });
 
-//用cordova库定位--暂时隐藏-android有问题，后续研究解决
+//用cordova库定位-由于cordova定位插件的问题，这里卸载它的插件，用H5的定位接口
 app.controller('SideMenuGeoCtrl', function($scope, $ionicModal){
 
     $ionicModal.fromTemplateUrl('templates/geo-info.html', {
@@ -136,12 +136,11 @@ app.controller('SideMenuGeoCtrl', function($scope, $ionicModal){
 
         $scope.modal.show();
         var option = {
-            maximumAge: 3000,
-            timeout: 3000,
+            maximumAge: 0,
+            timeout: 15000,
             enableHighAccuracy: false
         };
         navigator.geolocation.getCurrentPosition($scope.onSuccess, $scope.onError, option);
-        navigator.geolocation
 
     };
 
@@ -155,18 +154,19 @@ app.controller('SideMenuGeoCtrl', function($scope, $ionicModal){
 //        $scope.Speed = position.coords.speed;
         $scope.Timestamp = position.timestamp;
         $scope.$apply();
-        alert( $scope.Latitude + $scope.Longitude);
+//        alert( $scope.Latitude + $scope.Longitude);
 
     };
 
     $scope.onError = function(error) {
-        alert('code: '    + error.code    + '\n' +
-            'message: ' + error.message + '\n');
+//        alert('code: '    + error.code    + '\n' +
+//            'message: ' + error.message + '\n');
+        alert("定位失败，请检查是否打开GPS");
     }
 
 });
 
-//用ngcordova库定位--暂时隐藏-android有问题，后续研究解决
+//用ngcordova库定位--
 app.controller('SideMenuNGGeoCtrl', function($scope, $ionicModal, $cordovaGeolocation){
 
     $ionicModal.fromTemplateUrl('templates/geo-info.html', {

@@ -114,3 +114,7 @@ uses-permission#android.permission.ACCESS_FINE_LOCATION
 ADDED from AndroidManifest.xml:22:5
 	android:name
 		ADDED from AndroidManifest.xml:22:22
+uses-permission#android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
+ADDED from AndroidManifest.xml:23:5
+	android:name
+		ADDED from AndroidManifest.xml:23:22

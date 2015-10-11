@@ -158,8 +158,7 @@ module.exports.metadata =
     "com.synconset.imagepicker": "1.0.6",
     "cordova-plugin-camera": "1.2.0",
     "cordova-plugin-contacts": "1.1.0",
-    "cordova-plugin-inappbrowser": "1.0.1",
-    "org.apache.cordova.geolocation": "0.3.12"
+    "cordova-plugin-inappbrowser": "1.0.1"
 }
 // BOTTOM OF METADATA
 });
